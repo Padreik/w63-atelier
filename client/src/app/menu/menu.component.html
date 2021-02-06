@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/">Atelier W63</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ms-auto">
+      <ng-container *ngIf="aclService.isLoggedIn()">
+        <li class="nav-item active">
+          <a class="btn btn-outline-primary mr-2" routerLink="/read">Mes messages</a>
+        </li>
+        <li class="nav-item active">
+          <a class="btn btn-outline-primary mr-2" routerLink="/new">Nouveau message</a>
+        </li>
+        <li class="nav-item active">
+          <button class="btn btn-outline-danger" (click)="logout()">Déconnexion</button>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="!aclService.isLoggedIn()">
+        <li class="nav-item active">
+          <a class="btn btn-outline-primary" routerLink="/login">Login</a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</nav>

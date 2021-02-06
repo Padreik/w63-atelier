@@ -1,0 +1,22 @@
+<form [formGroup]="loginForm" class="form-signin" (ngSubmit)="onSubmit()">
+  <input type="hidden" name="csrf_token" value=""/>
+  
+  <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
+  
+  <div class="alert alert-danger" [ngClass]="{'d-none': error == ''}">{{error}}</div>
+  
+  <div class="mb-3">
+    <label for="username" class="sr-only">Adresse courriel</label>
+    <input type="text" formControlName="username" id="username" name="username" class="form-control" placeholder="Adresse courriel" autofocus="">
+  </div>
+  
+  <div class="mb-3">
+    <label for="password" class="sr-only">Mot de passe</label>
+    <input type="password" formControlName="password" id="password" name="password" class="form-control" placeholder="Mot de passe" required="">
+  </div>
+  
+  <div class="w-50 m-auto">
+    <button class="btn btn-lg btn-primary btn-block" id="login" type="submit">Se connecter</button>
+    <button class="btn btn-lg btn-secondary btn-block" (click)="registerClick()" id="register" type="button">Créer son compte</button>
+  </div>
+</form>

@@ -1,0 +1,9 @@
+<h1>Super blog</h1>
+<div class="card text-center mb-5" *ngFor="let post of posts">
+  <div class="card-header">{{post.title}}</div>
+  <div class="card-body">{{post.message}}</div>
+  <div class="card-footer">
+    {{post.author?.username}},
+    {{moment(post.date).fromNow()}}
+  </div>
+</div>

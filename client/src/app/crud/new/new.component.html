@@ -1,0 +1,19 @@
+<form [formGroup]="newForm" (ngSubmit)="enregistrer()">
+  <div class="mb-3">
+    <label for="title">Titre</label>
+    <input type="text" formControlName="title" class="form-control" id="title"/>
+    <div class="text-danger" *ngIf="newForm.controls.title.invalid && submitted">
+      Veuillez entrer un titre
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="message">Message</label>
+    <textarea formControlName="message" class="form-control" id="message"></textarea>
+    <div class="text-danger" *ngIf="newForm.controls.message.invalid && submitted">
+      Veuillez entrer un message de 50 caractères
+    </div>
+  </div>
+  <div class="mb-3">
+    <button class="btn btn-primary" type="submit">Enregistrer</button>
+  </div>
+</form>
